@@ -107,8 +107,8 @@ var au = null;
 var ap = null;
 
 if(!nocred_mode) {
-    au = arg_username ? arg_username : config.amex.un? config.amex.un : null;
-    ap = arg_password ? arg_password : config.amex.p ? config.amex.p : null;
+    au = arg_username ? arg_username : process.env.username ? process.env.username : config.amex.un? config.amex.un : null;
+    ap = arg_password ? arg_password : process.env.password ? process.env.password : config.amex.p ? config.amex.p : null;
     if(!au) {
         let msg = "Must specify a username in config (config.amex.un) or with --username arg";
         console.error(msg);
